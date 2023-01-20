@@ -91,29 +91,7 @@ def main():
     print('using device:', device)
 
     raw_data_path = args.raw_data_path
-    tokenized_data_path = args.tokenized_data_path
-    raw = args.raw  # 选择是否从零开始构建数据集
-    epochs = args.epochs
-    batch_size = args.batch_size
-    lr = args.lr
-    warmup_steps = args.warmup_steps
-    log_step = args.log_step
-    stride = args.stride
-    gradient_accumulation = args.gradient_accumulation
-    fp16 = args.fp16  # 不支持半精度的显卡请勿打开
-    fp16_opt_level = args.fp16_opt_level
-    max_grad_norm = args.max_grad_norm
-    num_pieces = args.num_pieces
-    min_length = args.min_length
-    output_dir = args.output_dir
-    tb_writer = SummaryWriter(log_dir=args.writer_dir)
-    assert log_step % gradient_accumulation == 0
-
-    if not os.path.exists(output_dir):
-        os.mkdir(output_dir)
-
-    if raw:
-        print('building files')
+    tokeni        print('building files')
         build_files(data_path=raw_data_path, tokenized_data_path=tokenized_data_path, num_pieces=num_pieces,
                     full_tokenizer=full_tokenizer, min_length=min_length)
         print('files built')
